@@ -16,7 +16,6 @@ import java.util.List;
 public class MembershipServiceImpl implements MembershipService {
 
     private final MembershipRepository membershipRepository;
-    private final UserRepository userRepository;
 
     @Override
     public Membership findById(Long id) {
@@ -30,9 +29,8 @@ public class MembershipServiceImpl implements MembershipService {
 
     @Override
     public Membership create(MembershipDto membershipDto) {
-        List<User> users = userRepository.findAllById(membershipDto.getUsersId());
         Membership membership = new Membership(membershipDto.getDescription(), membershipDto.getImage(),
-                membershipDto.getImage(), membershipDto.getPrice(), users);
+                membershipDto.getImage(), membershipDto.getPrice());
 
         return this.membershipRepository.save(membership);
     }
@@ -40,12 +38,10 @@ public class MembershipServiceImpl implements MembershipService {
     @Override
     public Membership update(Long id, MembershipDto membershipDto) {
         Membership membership = this.findById(id);
-        List<User> users = userRepository.findAllById(membershipDto.getUsersId());
 
         membership.setDescription(membershipDto.getDescription());
         membership.setImage(membershipDto.getImage());
         membership.setName(membershipDto.getName());
-        membership.setUsers(users);
         membership.setPrice(membershipDto.getPrice());
 
         return this.membershipRepository.save(membership);

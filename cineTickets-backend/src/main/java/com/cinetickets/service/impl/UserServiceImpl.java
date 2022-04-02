@@ -5,6 +5,8 @@ import com.cinetickets.model.dto.UserDto;
 import com.cinetickets.repository.UserRepository;
 import com.cinetickets.service.UserService;
 import lombok.AllArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +16,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public User findById(Long id) {
@@ -27,7 +30,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User create(UserDto userDto) {
-        return null;
+        String encryptedPassword = passwordEncoder.encode(userDto.getPassword());
+        User user = new User(userDto.getEmail(), userDto.getFirstName(), userDto.getLastName(),
+                encryptedPassword, userDto.getRole(), userDto.getUsername());
+        return this.userRepository.save(user);
     }
 
     @Override

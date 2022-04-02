@@ -4,16 +4,18 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Data
+@Table(name = "cinema")
 public class Cinema {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String address;
@@ -26,5 +28,14 @@ public class Cinema {
 
     private String phoneNumber;
 
-    // private List<Hall> halls;
+    @OneToMany(mappedBy = "cinema", cascade = CascadeType.ALL)
+    private List<Hall> halls;
+
+    public Cinema(String address, String image, String name, String city, String phoneNumber) {
+        this.address = address;
+        this.image = image;
+        this.name = name;
+        this.city = city;
+        this.phoneNumber = phoneNumber;
+    }
 }

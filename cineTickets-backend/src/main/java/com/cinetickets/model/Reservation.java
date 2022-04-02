@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -15,9 +12,11 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Entity
+@Table(name = "reservation")
 public class Reservation {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private LocalDateTime createdDate;
@@ -29,9 +28,9 @@ public class Reservation {
     @ManyToOne
     private User user;
 
-    //@ManyToOne
-    //private Showing showing;
+    @ManyToOne
+    private Showing showing;
 
-    @OneToMany
+    @OneToMany(mappedBy = "reservation", cascade = CascadeType.ALL)
     private List<Ticket> tickets;
 }

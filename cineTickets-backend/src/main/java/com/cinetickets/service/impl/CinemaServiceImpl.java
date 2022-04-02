@@ -27,12 +27,22 @@ public class CinemaServiceImpl implements CinemaService {
 
     @Override
     public Cinema create(CinemaDto cinemaDto) {
-        return null;
+        Cinema cinema = new Cinema(cinemaDto.getAddress(), cinemaDto.getImage(), cinemaDto.getName(),
+                cinemaDto.getCity(), cinemaDto.getPhoneNumber());
+        return this.cinemaRepository.save(cinema);
     }
 
     @Override
     public Cinema update(Long id, CinemaDto cinemaDto) {
-        return null;
+        Cinema cinema = this.findById(id);
+
+        cinema.setAddress(cinemaDto.getAddress());
+        cinema.setImage(cinemaDto.getImage());
+        cinema.setName(cinemaDto.getName());
+        cinema.setCity(cinemaDto.getCity());
+        cinema.setPhoneNumber(cinemaDto.getPhoneNumber());
+
+        return this.cinemaRepository.save(cinema);
     }
 
     @Override
