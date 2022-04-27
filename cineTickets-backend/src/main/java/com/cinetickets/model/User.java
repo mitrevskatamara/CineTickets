@@ -1,7 +1,10 @@
 package com.cinetickets.model;
 
+import com.cinetickets.model.dto.UserRole;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
@@ -9,6 +12,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Getter
+@Setter
 @Table(name = "user")
 public class User {
 
@@ -24,7 +29,8 @@ public class User {
 
     private String password;
 
-    private Role role;
+    @Enumerated(value = EnumType.STRING)
+    private UserRole role;
 
     private String username;
 
@@ -35,12 +41,10 @@ public class User {
     @JoinTable(name = "users_memberships", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "membership_id"))
     private List<Membership> memberships;
 
-    public User(String email, String firstName, String lastName, String password, Role role, String username) {
+    public User(String email, String password) {
         this.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
         this.password = password;
-        this.role = role;
-        this.username = username;
     }
+
+
 }
