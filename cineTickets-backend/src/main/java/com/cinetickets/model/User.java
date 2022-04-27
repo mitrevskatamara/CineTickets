@@ -1,20 +1,18 @@
 package com.cinetickets.model;
 
-import com.cinetickets.model.dto.UserRole;
+import com.cinetickets.model.enumeration.UserRole;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 @Entity
-@Getter
-@Setter
-@Table(name = "user")
+@Table(name = "user", schema = "public")
 public class User {
 
     @Id
@@ -45,6 +43,4 @@ public class User {
         this.email = email;
         this.password = password;
     }
-
-
 }

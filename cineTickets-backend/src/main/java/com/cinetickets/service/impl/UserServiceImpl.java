@@ -1,12 +1,12 @@
 package com.cinetickets.service.impl;
 
+import com.cinetickets.model.Membership;
 import com.cinetickets.model.User;
 import com.cinetickets.model.dto.UserDto;
 import com.cinetickets.model.exception.UserNotFoundException;
 import com.cinetickets.repository.UserRepository;
 import com.cinetickets.service.UserService;
 import lombok.AllArgsConstructor;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -35,21 +35,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User create(UserDto userDto) {
-        /*
-        String encryptedPassword = passwordEncoder.encode(userDto.getPassword());
-        User user = new User(userDto.getEmail(), userDto.getFirstName(), userDto.getLastName(),
-                encryptedPassword, userDto.getRole(), userDto.getUsername());
-        return this.userRepository.save(user);
+    public User updateMembership(Long id, Membership membership) {
+        User user = this.findById(id);
 
-         */
-        return null;
+        user.getMemberships().add(membership);
+
+        return this.userRepository.save(user);
     }
 
     @Override
-    public User update(Long id, UserDto userDto) {
-        return null;
+    public User findByUsername(String username) {
+        return this.userRepository.getByUsername(username);
     }
+
 
     @Override
     public void delete(Long id) {

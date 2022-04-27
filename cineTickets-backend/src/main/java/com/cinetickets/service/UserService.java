@@ -1,7 +1,7 @@
 package com.cinetickets.service;
 
+import com.cinetickets.model.Membership;
 import com.cinetickets.model.User;
-import com.cinetickets.model.dto.UserDto;
 
 import java.util.List;
 
@@ -13,9 +13,9 @@ public interface UserService {
 
     User register(User user);
 
-    User create(UserDto userDto);
+    User updateMembership(Long id, Membership membership);
 
-    User update(Long id, UserDto userDto);
+    User findByUsername(String username);
 
     void delete(Long id);
 

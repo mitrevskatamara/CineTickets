@@ -1,4 +1,4 @@
-package com.cinetickets.model.dto;
+package com.cinetickets.model.enumeration;
 
 public enum UserRole {
     ROLE_USER,

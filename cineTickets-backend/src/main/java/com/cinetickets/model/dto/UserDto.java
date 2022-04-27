@@ -1,7 +1,7 @@
 package com.cinetickets.model.dto;
 
-import com.cinetickets.model.Role;
 import com.cinetickets.model.User;
+import com.cinetickets.model.enumeration.UserRole;
 import lombok.Data;
 
 import java.util.List;
