@@ -38,6 +38,8 @@ public class Movie {
 
     private String year;
 
+    private String image;
+
     @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
     private List<Showing> showings;
 }

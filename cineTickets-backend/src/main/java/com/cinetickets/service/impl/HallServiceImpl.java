@@ -19,6 +19,16 @@ public class HallServiceImpl implements HallService {
     }
 
     @Override
+    public Hall getByUsername(String username) {
+        return this.hallRepository.findByName(username);
+    }
+
+    @Override
+    public Hall save(Hall hall) {
+        return this.hallRepository.save(hall);
+    }
+
+    @Override
     public List<Hall> listAll() {
         return this.hallRepository.findAll();
     }
@@ -29,8 +39,10 @@ public class HallServiceImpl implements HallService {
     }
 
     @Override
-    public Hall update(HallDto hallDto) {
-        return null;
+    public Hall update(Hall hall) {
+        Hall persistedHall = this.hallRepository.save(hall);
+
+        return persistedHall;
     }
 
     @Override

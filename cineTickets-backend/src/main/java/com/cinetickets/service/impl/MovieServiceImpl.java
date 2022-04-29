@@ -30,8 +30,18 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public Movie update(MovieDto movieDto) {
-        return null;
+    public Movie save(Movie movie) {
+        return this.movieRepository.save(movie);
+    }
+
+    @Override
+    public Movie update(Movie movie) {
+        return this.movieRepository.save(movie);
+    }
+
+    @Override
+    public Movie getByTitle(String title) {
+        return this.movieRepository.findByTitle(title);
     }
 
     @Override

@@ -7,6 +7,8 @@ import com.cinetickets.service.SeatService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class SeatServiceImpl implements SeatService {
@@ -17,13 +19,18 @@ public class SeatServiceImpl implements SeatService {
     }
 
     @Override
+    public List<Seat> listAll() {
+        return this.seatRepository.findAll();
+    }
+
+    @Override
     public Seat create(SeatDto seatDto) {
         return null;
     }
 
     @Override
-    public Seat update(SeatDto seatDto) {
-        return null;
+    public Seat save(Seat seat) {
+        return this.seatRepository.save(seat);
     }
 
     @Override

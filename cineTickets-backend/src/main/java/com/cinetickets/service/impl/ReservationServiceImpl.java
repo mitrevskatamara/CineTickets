@@ -40,4 +40,9 @@ public class ReservationServiceImpl implements ReservationService {
         Reservation reservation = this.findById(id);
         this.reservationRepository.delete(reservation);
     }
+
+    @Override
+    public List<Reservation> getByShowingId(Long id) {
+        return reservationRepository.findByShowingId(id);
+    }
 }

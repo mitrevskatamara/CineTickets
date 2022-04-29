@@ -13,9 +13,11 @@ public interface MovieService {
 
     Movie create(MovieDto movieDto);
 
-    Movie update(MovieDto movieDto);
+    Movie update(Movie movie);
 
     void delete(Long id);
 
+    Movie getByTitle(String title);
 
+    Movie save(Movie movie);
 }

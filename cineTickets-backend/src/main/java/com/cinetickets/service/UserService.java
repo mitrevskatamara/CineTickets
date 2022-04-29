@@ -13,8 +13,6 @@ public interface UserService {
 
     User register(User user);
 
-    User updateMembership(Long id, Membership membership);
-
     User findByUsername(String username);
 
     void delete(Long id);
@@ -22,5 +20,7 @@ public interface UserService {
     boolean existsByEmail(String email);
 
     User findByEmail(String email);
+
+    User save(User user);
 
 }

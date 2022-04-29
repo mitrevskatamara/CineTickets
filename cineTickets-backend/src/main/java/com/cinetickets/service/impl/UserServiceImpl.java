@@ -35,11 +35,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User updateMembership(Long id, Membership membership) {
-        User user = this.findById(id);
-
-        user.getMemberships().add(membership);
-
+    public User save(User user) {
         return this.userRepository.save(user);
     }
 

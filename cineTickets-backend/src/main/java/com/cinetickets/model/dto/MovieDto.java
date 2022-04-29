@@ -1,6 +1,7 @@
 package com.cinetickets.model.dto;
 
 import lombok.Data;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -18,5 +19,6 @@ public class MovieDto   {
     private  String trailerURL;
     private  String year;
     private  List<Long> showings;
+    private MultipartFile image;
 
 }

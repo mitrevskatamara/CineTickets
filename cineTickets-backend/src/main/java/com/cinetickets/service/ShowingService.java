@@ -5,6 +5,7 @@ import com.cinetickets.model.Showing;
 import com.cinetickets.model.dto.SeatDto;
 import com.cinetickets.model.dto.ShowingDto;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface ShowingService {
@@ -18,4 +19,7 @@ public interface ShowingService {
 
     void delete(Long id);
 
+    List<Showing> getByCinemaIdAndMovieIdAndDateAndMovieIsShowing(long cinemaId, long movieId, LocalDate date);
+
+    List<Showing> getByMovie_IdAndMovie_IsShowingAndDateGreaterThanEqualOrderByDateAsc(long movieId, LocalDate date);
 }

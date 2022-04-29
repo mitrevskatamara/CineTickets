@@ -14,8 +14,11 @@ public interface HallService {
 
     Hall create(HallDto hallDto);
 
-    Hall update(HallDto hallDto );
+    Hall update(Hall hall);
 
     void delete(Long id);
 
+    Hall getByUsername(String username);
+
+    Hall save(Hall hall);
 }
