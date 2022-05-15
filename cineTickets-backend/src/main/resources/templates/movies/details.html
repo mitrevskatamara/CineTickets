@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="fragments :: head"></div>
+<body>
+    <div th:replace="fragments :: navigation"></div>
+
+    <div class="container" id="main">
+
+        <div class="row">
+
+            <div class="col-3 px-0">
+                <img th:src="@{${movie.image}}" alt="Movie poster image" style="width: 100%; height: 100%;" />
+            </div>
+
+            <div class="col-9 px-0">
+                <div class="embed-responsive embed-responsive-16by9" style="max-height: 400px">
+                    <iframe class="embed-responsive-item" th:src="${movie.trailerURL}" allowfullscreen></iframe>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row mt-4">
+
+            <div class="col-12 col-lg-7">
+                <h1 class="h1" th:text="${movie.title}"></h1>
+                <h5>Storyline</h5>
+                <p class="text-justify" th:text="${movie.description}"></p>
+                <div class="d-flex justify-content-between align-items-end">
+                    <div class="d-flex align-items-center">
+                        <img th:src="@{/uploads/images/star1.png}" alt="Rating" style="width: 60px; height: auto" />
+                        <h2 class="mb-0 mt-1 ml-2" th:text="${movie.rating}"></h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-5">
+                <table class="table table-hover">
+                    <tr>
+                        <th>Duration:</th>
+                        <td><span th:text="${movie.duration}"></span> min.</td>
+                    </tr>
+                    <tr>
+                        <th>Genre:</th>
+                        <td th:text="${movie.genre}"></td>
+                    </tr>
+                    <tr>
+                        <th>Director:</th>
+                        <td th:text="${movie.director}"></td>
+                    </tr>
+                    <tr>
+                        <th>Writer:</th>
+                        <td th:text="${movie.writer}"></td>
+                    </tr>
+                    <tr>
+                        <th>Actors:</th>
+                        <td th:text="${movie.stars}"></td>
+                    </tr>
+                    <tr>
+                        <th style="width: 100px;">Year:</th>
+                        <td><span th:text="${movie.year}"></span>.</td>
+                    </tr>
+                    <tr>
+                        <th>Country:</th>
+                        <td th:text="${movie.country}"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+
+
+    </div>
+    <div th:replace="fragments :: footer"></div>
+
+    <div th:replace="fragments :: scripts"></div>
+</body>
+</html>

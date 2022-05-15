@@ -12,10 +12,8 @@ public class CineTicketsApplication {
     public static void main(String[] args) {
         SpringApplication.run(CineTicketsApplication.class, args);
     }
-
     @Bean
-    PasswordEncoder passwordEncoder()
-    {
-        return new BCryptPasswordEncoder();
+    PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder(10);
     }
 }

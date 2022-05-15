@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
-@Service
+
 @AllArgsConstructor
 public class AuthServiceImpl implements AuthService {
     private final UserService userService;
