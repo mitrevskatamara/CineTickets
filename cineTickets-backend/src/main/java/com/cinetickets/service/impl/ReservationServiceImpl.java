@@ -1,7 +1,6 @@
 package com.cinetickets.service.impl;
 
 import com.cinetickets.model.Reservation;
-import com.cinetickets.model.dto.ReservationDto;
 import com.cinetickets.repository.ReservationRepository;
 import com.cinetickets.service.ReservationService;
 import lombok.AllArgsConstructor;
@@ -25,15 +24,30 @@ public class ReservationServiceImpl implements ReservationService {
         return this.reservationRepository.findAll();
     }
 
-    @Override
-    public Reservation create(ReservationDto reservationDto) {
-        return null;
-    }
 
     @Override
-    public Reservation update(Long id, ReservationDto reservationDto) {
-        return null;
-    }
+    public List<Reservation> getByIsPayed(boolean isPayed) {
+        return reservationRepository.findByIsPayed(isPayed);    }
+
+
+
+    @Override
+    public List<Reservation> getByUser_UsernameOrderByShowing_DateDesc(String username) {
+        return reservationRepository.findByUser_UsernameOrderByShowing_DateDesc(username);    }
+
+
+
+    @Override
+    public Reservation save(Reservation reservation) {
+        Reservation persistedReservation = reservationRepository.save(reservation);
+
+        return persistedReservation;    }
+
+    @Override
+    public Reservation update(Reservation reservation) {
+        Reservation persistedReservation = reservationRepository.save(reservation);
+
+        return persistedReservation;    }
 
     @Override
     public void delete(Long id) {

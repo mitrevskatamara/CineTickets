@@ -1,9 +1,6 @@
 package com.cinetickets.service.impl;
 
 import com.cinetickets.model.User;
-import com.cinetickets.model.dto.LoginDto;
-import com.cinetickets.model.dto.ResponseDto;
-import com.cinetickets.model.dto.UserDto;
 import com.cinetickets.model.enumeration.UserRole;
 import com.cinetickets.service.AuthService;
 import com.cinetickets.service.UserService;

@@ -1,10 +1,7 @@
 package com.cinetickets.service.impl;
 
 import com.cinetickets.model.Membership;
-import com.cinetickets.model.User;
-import com.cinetickets.model.dto.MembershipDto;
 import com.cinetickets.repository.MembershipRepository;
-import com.cinetickets.repository.UserRepository;
 import com.cinetickets.service.MembershipService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,6 @@
 package com.cinetickets.service.impl;
 
 import com.cinetickets.model.Hall;
-import com.cinetickets.model.dto.HallDto;
 import com.cinetickets.repository.HallRepository;
 import com.cinetickets.service.HallService;
 import lombok.AllArgsConstructor;

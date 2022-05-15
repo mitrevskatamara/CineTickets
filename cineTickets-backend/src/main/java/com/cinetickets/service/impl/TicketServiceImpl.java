@@ -1,7 +1,6 @@
 package com.cinetickets.service.impl;
 
 import com.cinetickets.model.Ticket;
-import com.cinetickets.model.dto.TicketDto;
 import com.cinetickets.repository.TicketRepository;
 import com.cinetickets.service.TicketService;
 import lombok.AllArgsConstructor;

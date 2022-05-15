@@ -1,9 +1,6 @@
 package com.cinetickets.service.impl;
 
-import com.cinetickets.model.Membership;
 import com.cinetickets.model.User;
-import com.cinetickets.model.dto.UserDto;
-import com.cinetickets.model.exception.UserNotFoundException;
 import com.cinetickets.repository.UserRepository;
 import com.cinetickets.service.UserService;
 import lombok.AllArgsConstructor;
@@ -11,6 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -20,45 +18,55 @@ public class UserServiceImpl implements UserService {
     private final PasswordEncoder passwordEncoder;
 
     @Override
-    public User findById(Long id) {
-        return this.userRepository.findById(id).orElse(null);
+    public List<User> getAll() {
+        return userRepository.findAll();
     }
 
     @Override
-    public List<User> listAll() {
-        return this.userRepository.findAll();
+    public List<User> getByRoles(String roles) {
+        return userRepository.findByRoles(roles);
     }
 
     @Override
-    public User register(User user) {
-        return this.userRepository.save(user);
+    public List<User> getByClubs_Id(long id) {
+        return userRepository.findByClubs_Id(id);
+    }
+
+    @Override
+    public Optional<User> getById(long id) {
+        return userRepository.findById(id);
+    }
+
+    @Override
+    public Optional<User> getByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
+
+    @Override
+    public Optional<User> getByEmail(String email) {
+        return userRepository.findByEmail(email);
     }
 
     @Override
     public User save(User user) {
-        return this.userRepository.save(user);
+        User persistedUser = userRepository.save(user);
+
+        return persistedUser;
     }
 
     @Override
-    public User findByUsername(String username) {
-        return this.userRepository.getByUsername(username);
-    }
+    public User update(User user) {
+        User persistedUser = userRepository.save(user);
 
-
-    @Override
-    public void delete(Long id) {
-        User user = this.findById(id);
-        this.userRepository.delete(user);
+        return persistedUser;
     }
 
     @Override
-    public boolean existsByEmail(String email) {
-        return this.userRepository.existsByEmail(email);
+    public void deleteById(long id) {
+        userRepository.deleteById(id);
     }
 
-    @Override
-    public User findByEmail(String email) {
-        return this.userRepository.findByEmail(email).orElseThrow(() ->new UserNotFoundException(email));
-    }
+
+
 
 }

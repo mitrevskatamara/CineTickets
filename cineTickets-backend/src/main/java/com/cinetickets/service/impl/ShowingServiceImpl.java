@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 @Service
@@ -38,6 +39,12 @@ public class ShowingServiceImpl implements ShowingService {
     public void delete(Long id) {
 
     }
+
+    @Override
+    public Showing getByHallIdAndDateAndTime(long hallId, LocalDate date, LocalTime time) {
+        return showingRepository.findByHallIdAndDateAndTime(hallId, date, time);
+    }
+
 
     @Override
     public List<Showing> getByCinemaIdAndMovieIdAndDateAndMovieIsShowing(long cinemaId, long movieId, LocalDate date) {
