@@ -1,7 +1,6 @@
 package com.cinetickets.service;
 
 import com.cinetickets.model.Reservation;
-import com.cinetickets.model.dto.ReservationDto;
 
 import java.util.List;
 
@@ -11,9 +10,14 @@ public interface ReservationService {
 
     List<Reservation> listAll();
 
-    Reservation create(ReservationDto reservationDto);
 
-    Reservation update(Long id, ReservationDto reservationDto);
+    List<Reservation> getByIsPayed(boolean isPayed);
+
+    Reservation save(Reservation reservation);
+
+    List<Reservation> getByUser_UsernameOrderByShowing_DateDesc(String username);
+
+    Reservation update(Reservation reservation);
 
     void delete(Long id);
 

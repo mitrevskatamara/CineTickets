@@ -6,6 +6,7 @@ import com.cinetickets.model.dto.SeatDto;
 import com.cinetickets.model.dto.ShowingDto;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 public interface ShowingService {
@@ -16,6 +17,7 @@ public interface ShowingService {
     Showing create(ShowingDto showingDto);
 
     Showing update(ShowingDto showingDto);
+    Showing getByHallIdAndDateAndTime(long hallId, LocalDate date, LocalTime time);
 
     void delete(Long id);
 

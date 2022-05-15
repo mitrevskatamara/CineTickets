@@ -1,7 +1,6 @@
 package com.cinetickets.service;
 
 import com.cinetickets.model.Membership;
-import com.cinetickets.model.dto.MembershipDto;
 
 import java.util.List;
 

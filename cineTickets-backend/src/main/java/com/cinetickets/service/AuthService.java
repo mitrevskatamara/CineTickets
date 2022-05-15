@@ -1,8 +1,6 @@
 package com.cinetickets.service;
 
 import com.cinetickets.model.User;
-import com.cinetickets.model.dto.LoginDto;
-import com.cinetickets.model.dto.ResponseDto;
 import org.springframework.security.core.Authentication;
 
 

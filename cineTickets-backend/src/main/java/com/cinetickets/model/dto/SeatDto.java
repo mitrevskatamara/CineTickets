@@ -1,14 +1,15 @@
 package com.cinetickets.model.dto;
 
+import com.cinetickets.model.Hall;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
 public class SeatDto   {
-    private  int seatNumber;
-    private  int row;
-    private List<Long> hall;
-    private  List<Long> tickets;
-
+    private long id;
+    private int row;
+    private int number;
+    private Hall hall;
+    private boolean isReserved;
 }

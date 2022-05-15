@@ -1,9 +1,6 @@
 package com.cinetickets.service;
 
 import com.cinetickets.model.Hall;
-import com.cinetickets.model.Movie;
-import com.cinetickets.model.dto.HallDto;
-import com.cinetickets.model.dto.MovieDto;
 
 import java.util.List;
 

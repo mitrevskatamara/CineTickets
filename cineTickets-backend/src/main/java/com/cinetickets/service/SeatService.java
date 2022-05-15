@@ -15,4 +15,6 @@ public interface SeatService {
     Seat save(Seat seat);
 
     void delete(Long id);
+
+    List<Seat> getByHall_IdOrderByNumberAsc(Long id);
 }
