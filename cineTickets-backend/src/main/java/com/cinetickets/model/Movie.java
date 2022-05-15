@@ -40,12 +40,6 @@ public class Movie {
 
     private String image;
 
-    private String writer;
-
-    private String stars;
-
-    private String trailerUrl;
-
     @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
     private List<Showing> showings;
 }
